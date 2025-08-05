@@ -295,27 +295,29 @@
       </ul>
     </section>
 
-    <section id="kontakt" class="content-section kontakt-section">
-  <h2>Kontaktformular</h2>
-  <form action="https://formspree.io/f/mgvznneo" method="POST">
-    <!-- Hier ganz oben versteckte Felder einfügen -->
-    <input type="hidden" name="_subject"
-           value="Neue Nachricht von Milos’ CV-Seite">
-    <input type="hidden" name="_replyto"
-           value="milos2000stanojevic@hotmail.com">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden"
-           name="_next"
-           value="https://milos-hftm.github.io/milos-cv/?thankyou=true">
+   <section id="kontakt" class="content-section kontakt-section">
+      <h2>Kontaktformular</h2>
+      <form action="https://formspree.io/f/mgvznneo" method="POST">
+        <input type="hidden" name="_subject" value="Neue Nachricht von Milos' CV-Seite">
+        <input type="hidden" name="_replyto" value="milos2000stanojevic@hotmail.com">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://milos-hftm.github.io/milos-cv/?thankyou=true">
 
-    <!-- ab hier deine sichtbaren Felder -->
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
-    <!-- … usw. … -->
-  </form>
-  <p id="thankyou" style="display:none; …">Vielen Dank! …</p>
-</section>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
 
+        <label for="email">E-Mail:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Nachricht:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Absenden</button>
+      </form>
+      <p id="thankyou" style="display:none; margin-top: var(--spacing); color: var(--clr-accent);">
+        Vielen Dank! Deine Nachricht wurde versendet.
+      </p>
+    </section>
   </div>
 
   <footer class="site-footer">
