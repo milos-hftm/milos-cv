@@ -25,6 +25,7 @@
       color: var(--clr-text);
       line-height: 1.6;
       transition: background var(--transition), color var(--transition);
+      overflow-x: hidden;
     }
     body.dark {
       background: var(--clr-primary);
@@ -111,6 +112,13 @@
       margin-bottom: calc(var(--spacing)*2);
       padding-bottom: var(--spacing);
       border-bottom: 2px solid var(--clr-accent);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity var(--transition), transform var(--transition);
+    }
+    .content-section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     .content-section h2 {
       font-size: 1.8rem;
@@ -133,8 +141,8 @@
       margin-bottom: 0.5em;
     }
     .content-section ul {
-    margin-left: 1.2rem;
-    list-style-position: outside;
+      margin-left: 1.2rem;
+      list-style-position: outside;
     }
 
     .skills {
@@ -152,9 +160,6 @@
       font-weight: 500;
     }
 
-    .kontakt-section {
-      margin-bottom: calc(var(--spacing)*2);
-    }
     .kontakt-section h2 {
       font-size: 1.8rem;
       margin-bottom: var(--spacing);
@@ -162,22 +167,22 @@
       padding-bottom: 0.2em;
       font-weight: 600;
     }
-    #contact-form {
+    .kontakt-section form {
       display: grid;
       gap: var(--spacing);
     }
-    #contact-form label {
+    .kontakt-section label {
       font-weight: 500;
     }
-    #contact-form input,
-    #contact-form textarea {
+    .kontakt-section input,
+    .kontakt-section textarea {
       padding: 0.8em;
       border: 1px solid var(--clr-secondary);
       border-radius: var(--radius);
       font-size: 1rem;
       width: 100%;
     }
-    #contact-form button {
+    .kontakt-section button {
       background: var(--clr-accent);
       color: #fff;
       border: none;
@@ -187,13 +192,8 @@
       cursor: pointer;
       justify-self: start;
     }
-    #contact-form button:hover {
+    .kontakt-section button:hover {
       background: #d35400;
-    }
-    #form-message {
-      color: var(--clr-accent);
-      font-size: 0.95rem;
-      display: none;
     }
 
     .site-footer {
@@ -208,23 +208,22 @@
       .site-header p { font-size: 1rem; }
       .contact-info { flex-direction: column; gap: var(--spacing); }
       .filter { justify-content: center; }
+      .site-header .portrait { width: 150px; height: 150px; }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <button id="theme-toggle">Dark Mode</button>
-  </nav>
+  <nav><button id="theme-toggle">Dark Mode</button></nav>
 
   <div class="container">
-    <header class="site-header">
+    <header class="site-header" id="page-header">
       <img src="images/portrait.png" alt="Portrait von Milos Stanojevic" class="portrait" loading="lazy">
       <h1>Milos Stanojevic</h1>
       <p>Produktionsmechaniker &amp; angehender Softwareentwickler HF</p>
       <div class="contact-info">
         <div>📍 Mazzinistrasse 14, 2540 Grenchen</div>
         <div>📞 079 939 30 91</div>
-        <div>✉️ <a href="mailto:milos2000stanojevic@hotmail.com">milos2000stanojevic@hotmail.com</a></div>
+        <div>✉️ milos2000stanojevic@hotmail.com</div>
       </div>
     </header>
 
@@ -245,7 +244,7 @@
         <span class="date">Feb 2023 – heute</span>
         <ul>
           <li>Einrichten der 3- und 5-Achsen-Fräsmaschinen</li>
-          <li>Serienfertigung &amp; Wartung</li>
+          <li>Serienfertigung & Wartung</li>
           <li>Erstellen von CNC-Programmen mit CAD/CAM</li>
         </ul>
       </div>
@@ -254,8 +253,8 @@
         <span class="date">Aug 2021 – Feb 2023</span>
         <ul>
           <li>Programmieren mit Mastercam (3 Achsen)</li>
-          <li>Einrichten von Portal- &amp; 5-Achsen-Fräsmaschinen</li>
-          <li>Serienfertigung &amp; Wartung</li>
+          <li>Einrichten von Portal- & 5-Achsen-Fräsmaschinen</li>
+          <li>Serienfertigung & Wartung</li>
         </ul>
       </div>
       <div class="item">
@@ -263,8 +262,8 @@
         <span class="date">Sep 2019 – Jun 2020</span>
         <ul>
           <li>Bedienen von Mehrspindel-CNC-Fräsmaschinen</li>
-          <li>Werkzeugwechsel &amp; -bereitstellung</li>
-          <li>Bedienung von Reinigungs- &amp; Bürstanlagen</li>
+          <li>Werkzeugwechsel & -bereitstellung</li>
+          <li>Bedienung von Reinigungs- & Bürstanlagen</li>
         </ul>
       </div>
     </section>
@@ -284,23 +283,24 @@
     </section>
 
     <section id="skills" class="content-section">
-      <h2>Kenntnisse &amp; Interessen</h2>
+      <h2>Kenntnisse & Interessen</h2>
       <div class="skills">
-        <span>Deutsch</span><span>Englisch</span><span>Windows 10/11</span>
-        <span>Microsoft 365</span><span>VS Code</span><span>PowerShell</span>
-        <span>Java</span><span>C++</span><span>JavaScript</span>
-        <span>TypeScript</span><span>HTML &amp; CSS</span>
+        <span>Deutsch</span><span>Englisch</span><span>Windows 10/11</span><span>Microsoft 365</span>
+        <span>VS Code</span><span>PowerShell</span><span>Java</span><span>C++</span>
+        <span>JavaScript</span><span>TypeScript</span><span>HTML & CSS</span>
       </div>
       <h3>Hobbys</h3>
       <ul>
-        <li>Lesen</li><li>Tennis</li><li>Fitness</li>
-        <li>Schach</li><li>Game Design</li>
+        <li>Lesen</li><li>Tennis</li><li>Fitness</li><li>Schach</li><li>Game Design</li>
       </ul>
     </section>
 
     <section id="kontakt" class="content-section kontakt-section">
       <h2>Kontaktformular</h2>
-      <form id="contact-form" method="post" action="/api/contact">
+      <form action="https://formspree.io/f/mgvznneo" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://milos-hftm.github.io/milos-cv/?thankyou=true">
+
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
 
@@ -311,8 +311,11 @@
         <textarea id="message" name="message" rows="5" required></textarea>
 
         <button type="submit">Absenden</button>
-        <div id="form-message">Vielen Dank! Ihre Nachricht wurde versendet.</div>
       </form>
+      <p id="thankyou"
+         style="display:none; margin-top: var(--spacing); color: var(--clr-accent);">
+        Vielen Dank! Deine Nachricht wurde versendet.
+      </p>
     </section>
   </div>
 
@@ -321,41 +324,44 @@
   </footer>
 
   <script>
+    // Dark-/Light-Mode
     const btn = document.getElementById('theme-toggle');
-    btn.textContent = localStorage.getItem('theme') === 'dark' ? 'Light Mode' : 'Dark Mode';
-    document.body.classList.toggle('dark', localStorage.getItem('theme') === 'dark');
+    btn.textContent = localStorage.getItem('theme') === 'dark'
+                    ? 'Light Mode' : 'Dark Mode';
+    document.body.classList.toggle('dark',
+      localStorage.getItem('theme') === 'dark');
     btn.addEventListener('click', () => {
       document.body.classList.toggle('dark');
-      const mode = document.body.classList.contains('dark') ? 'dark' : 'light';
-      localStorage.setItem('theme', mode);
-      btn.textContent = mode === 'dark' ? 'Light Mode' : 'Dark Mode';
+      const m = document.body.classList.contains('dark')
+                ? 'dark' : 'light';
+      localStorage.setItem('theme', m);
+      btn.textContent = m === 'dark' ? 'Light Mode' : 'Dark Mode';
     });
 
-    document.getElementById('section-filter').addEventListener('change', e => {
-      document.querySelectorAll('.content-section').forEach(sec => {
-        sec.style.display = e.target.value === 'all' || sec.id === e.target.value
-          ? 'block' : 'none';
+    // Filter
+    document.getElementById('section-filter')
+      .addEventListener('change', e => {
+        document.querySelectorAll('.content-section').forEach(sec => {
+          sec.style.display = e.target.value === 'all'
+            || sec.id === e.target.value
+            ? 'block'
+            : 'none';
+        });
       });
-    });
 
+    // Scroll-Animation
     const io = new IntersectionObserver(entries => {
-      entries.forEach(en => en.isIntersecting && en.target.classList.add('visible'));
-    }, { threshold: 0.2 });
-    document.querySelectorAll('header, .content-section').forEach(el => io.observe(el));
-
-    document.getElementById('contact-form').addEventListener('submit', async e => {
-      e.preventDefault();
-      const res = await fetch(e.target.action, {
-        method: 'POST',
-        body: new FormData(e.target)
+      entries.forEach(en => {
+        if (en.isIntersecting) en.target.classList.add('visible');
       });
-      if (res.ok) {
-        document.getElementById('form-message').style.display = 'block';
-        e.target.reset();
-      } else {
-        alert('Fehler beim Senden, bitte später erneut versuchen.');
-      }
-    });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('header, .content-section, .kontakt-section')
+      .forEach(el => io.observe(el));
+
+    // Dankesmeldung nach Redirect
+    if (window.location.search.includes('thankyou=true')) {
+      document.getElementById('thankyou').style.display = 'block';
+    }
   </script>
 </body>
-</html>  
+</html>
