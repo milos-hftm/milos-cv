@@ -202,11 +202,17 @@
     }
 
     .site-footer {
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--clr-secondary);
-      margin: var(--spacing) 0;
-    }
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--clr-secondary);
+  margin: var(--spacing) 0;
+}
+
+/* Bessere Lesbarkeit im Dark-Mode */
+body.dark .site-footer {
+  color: #ffffff;
+}
+
 
     @media (max-width: 600px) {
       .site-header h1 { font-size: 2rem; }
