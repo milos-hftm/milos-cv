@@ -202,17 +202,17 @@
     }
 
     .site-footer {
-  text-align: center;
-  font-size: 0.85rem;
-  color: var(--clr-secondary);
-  margin: var(--spacing) 0;
-}
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--clr-secondary);
+      margin: var(--spacing) 0;
+    }
 
-/* Bessere Lesbarkeit im Dark-Mode */
-body.dark .site-footer {
-  color: #ffffff;
-}
-
+    /* Bessere Lesbarkeit im Dark-Mode */
+    body.dark .site-footer,
+    body.dark .site-footer p {
+      color: #ffffff !important;
+    }
 
     @media (max-width: 600px) {
       .site-header h1 { font-size: 2rem; }
@@ -256,7 +256,7 @@ body.dark .site-footer {
         <ul>
           <li>Einrichten der 3- und 5-Achsen-Fräsmaschinen</li>
           <li>Serienfertigung & Wartung</li>
-          <li>Erstellen von CNC-Programmen mit CAD/CAM</li>
+          <li>Erstellen von CNC-Programme mit CAD/CAM</li>
         </ul>
       </div>
       <div class="item">
